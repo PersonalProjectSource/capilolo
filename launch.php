@@ -10,9 +10,22 @@ require "libClass/Gitmanager.php";
 
 $manager = new GitManager($argv[1]);
 
+
+function cachecache($buffer) {
+
+    echo "----------------------BUFFER-------------------------------\n";
+    echo $buffer;
+    echo "----------------------ENDBUFFER-------------------------------\n";
+}
+
 try {
 	$manager->cloneSource();
 }
 catch (Exception $e) {
 	echo "Une exception a ete levee : ".$e->getMessage()."\n";
 }
+
+
+
+
+

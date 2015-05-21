@@ -8,7 +8,7 @@ class Validator {
 	public function sourceValidator() {
 		$traitementAFaire = true;
 		if (false == $traitementAFaire) {
-			throw new Exception("throw validator", 1);
+			throw new Exception("La derniere release ne satisfait pas aux conditions de validations.\n Retour a la derniere release fonctionnelle.");
 		}
 
 		return true;

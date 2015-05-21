@@ -4,5 +4,55 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135031/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432132691/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133400/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/shared/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432136541/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432134901/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135737/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432131652/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133254/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/shared/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133912/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432131652/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135364/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432136275/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213261/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213455/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213699/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432214065/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432215670/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432216736/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432216979/composer.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135031/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432132691/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133400/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/shared/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432136541/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432134901/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135737/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432131652/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133254/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/shared/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432133912/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432131652/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432135364/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432136275/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213261/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213455/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432213699/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432214065/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432215670/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432216736/composer.phar" />
+          <root url="phar://$MODULE_DIR$/sourceRelease/1432216979/composer.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
