@@ -562,17 +562,17 @@
     },
     {
         "name": "symfony/symfony",
-        "version": "v2.3.28",
-        "version_normalized": "2.3.28.0",
+        "version": "v2.3.29",
+        "version_normalized": "2.3.29.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/symfony.git",
-            "reference": "56bc4057e3849d38aeb5e9742bc800b0518fe1f0"
+            "reference": "c4da51ce0f2ef890d5ab77d91064f2f579076b24"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/symfony/zipball/56bc4057e3849d38aeb5e9742bc800b0518fe1f0",
-            "reference": "56bc4057e3849d38aeb5e9742bc800b0518fe1f0",
+            "url": "https://api.github.com/repos/symfony/symfony/zipball/c4da51ce0f2ef890d5ab77d91064f2f579076b24",
+            "reference": "c4da51ce0f2ef890d5ab77d91064f2f579076b24",
             "shasum": ""
         },
         "require": {
@@ -630,7 +630,7 @@
             "propel/propel1": "~1.6",
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-10 15:02:48",
+        "time": "2015-05-26 21:55:27",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -656,16 +656,16 @@
         ],
         "authors": [
             {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
                 "name": "Fabien Potencier",
                 "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
             }
         ],
         "description": "The Symfony PHP framework",
-        "homepage": "http://symfony.com",
+        "homepage": "https://symfony.com",
         "keywords": [
             "framework"
         ]
@@ -993,65 +993,6 @@
         "keywords": [
             "log",
             "logging"
-        ]
-    },
-    {
-        "name": "phpoffice/phpexcel",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPOffice/PHPExcel.git",
-            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/049e85ae98a90869e1bc83087f755010e9223091",
-            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
-            "shasum": ""
-        },
-        "require": {
-            "ext-xml": "*",
-            "ext-xmlwriter": "*",
-            "php": ">=5.2.0"
-        },
-        "time": "2015-05-05 00:10:25",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "PHPExcel": "Classes/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Maarten Balliauw",
-                "homepage": "http://blog.maartenballiauw.be"
-            },
-            {
-                "name": "Mark Baker"
-            },
-            {
-                "name": "Franck Lefevre",
-                "homepage": "http://blog.rootslabs.net"
-            },
-            {
-                "name": "Erik Tilt"
-            }
-        ],
-        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
-        "homepage": "http://phpexcel.codeplex.com",
-        "keywords": [
-            "OpenXML",
-            "excel",
-            "php",
-            "spreadsheet",
-            "xls",
-            "xlsx"
         ]
     },
     {
@@ -3363,18 +3304,18 @@
     },
     {
         "name": "lexik/translation-bundle",
-        "version": "v2.1.4",
-        "version_normalized": "2.1.4.0",
+        "version": "v2.1.5",
+        "version_normalized": "2.1.5.0",
         "target-dir": "Lexik/Bundle/TranslationBundle",
         "source": {
             "type": "git",
             "url": "https://github.com/lexik/LexikTranslationBundle.git",
-            "reference": "cea76dc4ba8f406243a23d073ce30afcd83fa40d"
+            "reference": "44f8c8357fc7ae470eefc05c6ae61ebcbcdecaee"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/lexik/LexikTranslationBundle/zipball/cea76dc4ba8f406243a23d073ce30afcd83fa40d",
-            "reference": "cea76dc4ba8f406243a23d073ce30afcd83fa40d",
+            "url": "https://api.github.com/repos/lexik/LexikTranslationBundle/zipball/44f8c8357fc7ae470eefc05c6ae61ebcbcdecaee",
+            "reference": "44f8c8357fc7ae470eefc05c6ae61ebcbcdecaee",
             "shasum": ""
         },
         "require": {
@@ -3395,7 +3336,7 @@
             "doctrine/orm": ">=2.4",
             "propel/propel-bundle": "~1.2"
         },
-        "time": "2015-05-20 12:09:53",
+        "time": "2015-05-28 12:34:54",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -4231,6 +4172,65 @@
             "gui",
             "test",
             "web"
+        ]
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/049e85ae98a90869e1bc83087f755010e9223091",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2015-05-05 00:10:25",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://blog.rootslabs.net"
+            },
+            {
+                "name": "Erik Tilt"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "http://phpexcel.codeplex.com",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
         ]
     }
 ]

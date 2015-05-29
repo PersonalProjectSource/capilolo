@@ -59,10 +59,9 @@ class Translator extends BaseTranslator
 
         $deleted = true;
         foreach ($files as $file) {
-            if (!unlink($file)) {
-                $deleted = false;
-            } else {
+            if (file_exists($file)) {
                 $this->invalidateSystemCacheForFile($file);
+                $deleted = unlink($file);
             }
 
             $metadata = $file.'.meta';
@@ -111,7 +110,7 @@ class Translator extends BaseTranslator
             if (apc_exists($path) && !apc_delete_file($path)) {
                 throw new \RuntimeException(sprintf('Failed to clear APC Cache for file %s', $path));
             }
-        } elseif (ini_get('opcache.enable')) {
+        } elseif ('cli' === php_sapi_name() ? ini_get('opcache.enable_cli') : ini_get('opcache.enable')) {
             if (!opcache_invalidate($path, true)) {
                 throw new \RuntimeException(sprintf('Failed to clear OPCache for file %s', $path));
             }
