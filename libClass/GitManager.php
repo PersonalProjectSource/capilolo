@@ -16,6 +16,9 @@ class GitManager {
 
 	const RELEASE_SOURCE_FOLDER = "sourceRelease/";
 	const RELEASE_BASE_NAME = "CustomName";
+
+    // TODO a modifier si l'on connais le pattern precis du format de l'url git.
+    const PATTERN_URL_GIT = "((http:\/\/|https:\/\/)?(www.)?(([a-zA-Z0-9-]){2,}\.){1,4}([a-zA-Z]){2,6}(\/([a-zA-Z-_\/\.0-9#:?=&;,]*)?)?)";
 	
 	protected $url;
 	protected $validator;
@@ -53,11 +56,10 @@ class GitManager {
         //$this->releaseManager->aRealeaseIndex['list'][] = $iTokkenId; // a supprimer apres verification de l'impact.
 
 		$sResult = system(self::CLONE_COMMAND." ".$this->url." ".$sReleasePath."/");
-        //$sResult = ""; // Supprimer apres les tests.
-		if ($this->urlIsAgreed()) { // TODO lbrau : Voir les conditions de validation du validator.
+		if ($this->urlIsAgreed($this->url)) {
 			switch ($sResult) {
 				case self::CLONE_DONE:
-					$this->validator->sourceValidator(); // TODO lbrau : idem above
+					$this->validator->sourceValidator(); // TODO lbrau : Voir les conditions de validation du validator.
 					$this->releaseManager->addRelease();
 					break;
 				case self::CLONE_ALREADY_EXIST:
@@ -93,7 +95,7 @@ class GitManager {
 
 		$sResult = system(self::TEST_COMMAND." ".$argv[1]);
 
-		if ($this->urlIsAgreed()) { // TODO lbrau : Voir les conditions de validation du validator.
+		if ((boolean)$this->urlIsAgreed($this->url)) {
 			switch ($sResult) {
 				case self::UP_TO_DATE:
 					// Code de mise a jour des sources
@@ -114,11 +116,13 @@ class GitManager {
 	}
 
     /**
-     * Check avec une regex la conformité de l'url ($this->url) du depot github
+     * Check avec une regex la conformité de l'url ($this->url) du depot github.
+     * retour true si l'url est conforme.
      * @return bool
      */
-	private function urlIsAgreed () {
-		return true;
+	private function urlIsAgreed ($sUrl) {
+        $sPatternUrlGit = self::PATTERN_URL_GIT;
+        return preg_match($sPatternUrlGit, $sUrl);
 	}
 
 	public function push ($sParam) {
