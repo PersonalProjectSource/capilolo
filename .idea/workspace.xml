@@ -45,21 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GitManager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GitManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libClass/GitManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77056277" vertical-offset="606" max-vertical-offset="2220">
-              <caret line="76" column="53" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="53" />
+            <state vertical-scroll-proportion="-9.411765" vertical-offset="675" max-vertical-offset="2235">
+              <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReleaseManager.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReleaseManager.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/libClass/ReleaseManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.0" vertical-offset="1152" max-vertical-offset="3210">
-              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.39583334" vertical-offset="1920" max-vertical-offset="3225">
+              <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/sourceRelease/1432818710/app/phpunit.xml" />
         <option value="$PROJECT_DIR$/launch.php" />
         <option value="$PROJECT_DIR$/cache/releaseName.cache" />
-        <option value="$PROJECT_DIR$/libClass/ReleaseManager.php" />
         <option value="$PROJECT_DIR$/libClass/GitManager.php" />
+        <option value="$PROJECT_DIR$/libClass/ReleaseManager.php" />
       </list>
     </option>
   </component>
@@ -663,18 +663,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libClass/ReleaseManager.php">
+    <entry file="file://$PROJECT_DIR$/libClass/GitManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0" vertical-offset="1152" max-vertical-offset="3210">
-          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+        <state vertical-scroll-proportion="-9.411765" vertical-offset="675" max-vertical-offset="2235">
+          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libClass/GitManager.php">
+    <entry file="file://$PROJECT_DIR$/libClass/ReleaseManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77056277" vertical-offset="606" max-vertical-offset="2220">
-          <caret line="76" column="53" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.39583334" vertical-offset="1920" max-vertical-offset="3225">
+          <caret line="147" column="41" selection-start-line="147" selection-start-column="41" selection-end-line="147" selection-end-column="41" />
           <folding />
         </state>
       </provider>

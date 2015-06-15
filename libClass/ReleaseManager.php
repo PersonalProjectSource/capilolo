@@ -145,7 +145,8 @@ class ReleaseManager {
      */
     public function createCacheRelease($sReleaseName) {
         // Creation d'un fichier de cache release
-        $pStream = fopen(self::PATH_RELEASE_CACHE,"a");
+        var_dump('lbrau maj cache file');
+;        $pStream = fopen(self::PATH_RELEASE_CACHE,"a");
         fwrite($pStream, $sReleaseName."\n");
     }
 

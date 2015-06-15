@@ -55,6 +55,7 @@ class GitManager {
         $this->releaseManager->aRealeaseIndex['token'] = $iTokkenId;
         //$this->releaseManager->aRealeaseIndex['list'][] = $iTokkenId; // a supprimer apres verification de l'impact.
 
+        // TODO lbrau: le retour de la function system() n'est pas geree de la meme maniere sur OSX et Linux.
 		$sResult = system(self::CLONE_COMMAND." ".$this->url." ".$sReleasePath."/");
 		if ($this->urlIsAgreed($this->url)) {
             var_dump("CheckREsultVar ===>>> ",$sResult);
