@@ -51,7 +51,6 @@ class ReleaseManager {
      * @param $sVhostPath
      */
     private function connectCurrentReleaseToProject($sVhostPath, $sLastReleasePath) {
-
         system("sudo ln -s ScriptsAdel/".trim($sLastReleasePath)." ".$sVhostPath."");
         // recuperation du nom de la release par une regex.
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
@@ -69,7 +68,6 @@ class ReleaseManager {
      * @return String
      */
     private function getLastReleasePath() {
-
         $aReleasesList = $this->getAllReleaseFromFile();
         $sLastIndexReleaseFile = $aReleasesList[count($aReleasesList)-1];
 
@@ -86,9 +84,7 @@ class ReleaseManager {
     }
 
     private function updateSharedFolderWithappRelease($sLastReleaseName, $sPathSymlinkParameterYml ) {
-        // Faire symlink de app last releases vers dossier shared.
         system("cp sourceRelease/".$sLastReleaseName."/app/config/parameters.yml.dist sourceRelease/".$sLastReleaseName."/app/config/parameters.yml");
-        //system("ln -s ../".$sLastReleaseName."/app/ ".$sPathSymlinkParameterYml);
     }
 
     /**
@@ -106,13 +102,10 @@ class ReleaseManager {
             $this->createCacheRelease($this->aRealeaseIndex['last']);
             // Regenere le fichier release cache.
             $aReleasesListToKeep = $this->cleanCacheReleaseFile($aReleasesList);
-            var_dump("KEEEEEPPPPPMMEEEEEE",$aReleasesListToKeep);
             $aReleasesListToDelete = array_diff($aReleasesList, $aReleasesListToKeep);
             $this->removeSomeReleases($aReleasesListToDelete);
 
-
             $aReleasesListToKeepInversed = $this->reverseArrayIndex($aReleasesListToKeep);
-            var_dump("REVERSEEEEEED",$aReleasesListToKeepInversed);
             $sCacheFileContentToAdd = implode("", $aReleasesListToKeepInversed);
             file_put_contents(self::PATH_RELEASE_CACHE, $sCacheFileContentToAdd);
         }
@@ -126,7 +119,6 @@ class ReleaseManager {
      * @return array
      */
     private function reverseArrayIndex(Array $aArrayToReverse) {
-
         $aArrayReversed = array();
         for ($iRev = count($aArrayToReverse), $i = 1; $i <= count($aArrayToReverse); ++$i, --$iRev) {
             $aArrayReversed[$iRev] = $aArrayToReverse[$i];
@@ -197,8 +189,6 @@ class ReleaseManager {
      * @param $sRelasePathToRemove
      */
     public function removeRelease($sRelasePathToRemove) {
-
-        var_dump($sRelasePathToRemove);
         system("sudo rm -R ".$sRelasePathToRemove);
     }
 
@@ -207,9 +197,6 @@ class ReleaseManager {
      * @param $sRelasePathToRemove
      */
     public function removeSomeReleases($aReleasesListToDelete) {
-
-        echo "REMOVE SOME RELEASES : \n";
-        var_dump($aReleasesListToDelete);
         // TODO faire une gestion d'erreurs.
         foreach ($aReleasesListToDelete as $iKey => $sReleasePath) {
             $this->removeRelease($sReleasePath);

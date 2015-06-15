@@ -57,6 +57,7 @@ class GitManager {
 
 		$sResult = system(self::CLONE_COMMAND." ".$this->url." ".$sReleasePath."/");
 		if ($this->urlIsAgreed($this->url)) {
+            var_dump("CheckREsultVar ===>>> ",$sResult);
 			switch ($sResult) {
 				case self::CLONE_DONE:
 					$this->validator->sourceValidator(); // TODO lbrau : Voir les conditions de validation du validator.
@@ -70,7 +71,7 @@ class GitManager {
 					throw new Exception("L'erreur n'a pas pu etre identifiee. Faire une recherche sur 'TODO 403' dans les sources\n");
 					break;
 				default:
-					throw new Exception("Probleme lors de la mise à jour des sources\n");
+					throw new Exception("Operation terminee \n");
 					break;
 			}
 		}
