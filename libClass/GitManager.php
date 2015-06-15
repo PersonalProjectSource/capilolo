@@ -73,6 +73,8 @@ class GitManager {
 					throw new Exception("L'erreur n'a pas pu etre identifiee. Faire une recherche sur 'TODO 403' dans les sources\n");
 					break;
 				default:
+                    var_dump("##### passe 4 #####\n");
+                    $this->releaseManager->addRelease(); // TODO voir si suppression apres test
 					throw new Exception("Operation terminee \n");
 					break;
 			}
