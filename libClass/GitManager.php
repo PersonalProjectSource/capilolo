@@ -60,6 +60,7 @@ class GitManager {
             var_dump("CheckREsultVar ===>>> ",$sResult);
 			switch ($sResult) {
 				case self::CLONE_DONE:
+
 					$this->validator->sourceValidator(); // TODO lbrau : Voir les conditions de validation du validator.
 					$this->releaseManager->addRelease();
 					break;
@@ -67,6 +68,7 @@ class GitManager {
 					throw new Exception("Le depot existe deja \n"); // TODO 403 actuellement aucun moyen de verifier l'existant avec les retours fonction php.
 					break;
 				case self::NOTHING:
+                    var_dump("##### passe 3 #####\n");
                     $this->releaseManager->addRelease(); // TODO voir si suppression apres test
 					throw new Exception("L'erreur n'a pas pu etre identifiee. Faire une recherche sur 'TODO 403' dans les sources\n");
 					break;

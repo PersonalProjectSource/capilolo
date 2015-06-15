@@ -39,6 +39,7 @@ class ReleaseManager {
         $this->connectCurrentReleaseToProject(self::VHOST_PATH, $sLastReleasePath);
         $this->updateSharedFolderWithappRelease($this->sLastReleaseName, self::PATH_PARAMETER_SYMLINK);
 
+        // TODO lbrau check avec toinant pour desmonstration de decoupage.
         system("curl -sS https://getcomposer.org/installer | php");
         system("sudo mv composer.phar ".self::PATH_VENDORS);
         system("sudo cp ".$this->aRealeaseIndex['last']."/composer.json ".self::PATH_VENDORS."/");
@@ -92,12 +93,13 @@ class ReleaseManager {
      * Ce parametre est configurable dans la constante de classe release manager.
      */
     public function keepLimitedReleases() {
-
+        var_dump('function keepLimitedReleases()');
         $iReleaseNumber = $this->getNumberOfRelease();
         $this->createCacheRelease($this->aRealeaseIndex['last']);
         $aReleasesList = $this->getAllReleaseFromFile();
 
         if (self::NOMBRE_RELEASES_HISTORISEES < $iReleaseNumber) {
+            var_dump('passe_limit');
             $this->removeRelease($aReleasesList[0]);
             $this->createCacheRelease($this->aRealeaseIndex['last']);
             // Regenere le fichier release cache.
