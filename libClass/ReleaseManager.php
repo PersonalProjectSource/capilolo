@@ -105,6 +105,7 @@ class ReleaseManager {
             // Regenere le fichier release cache.
             $aReleasesListToKeep = $this->cleanCacheReleaseFile($aReleasesList);
             $aReleasesListToDelete = array_diff($aReleasesList, $aReleasesListToKeep);
+            var_dump('##### value arrayTodelete => '.$aReleasesListToDelete.'\n');
             $this->removeSomeReleases($aReleasesListToDelete);
 
             $aReleasesListToKeepInversed = $this->reverseArrayIndex($aReleasesListToKeep);
@@ -146,7 +147,7 @@ class ReleaseManager {
     public function createCacheRelease($sReleaseName) {
         // Creation d'un fichier de cache release
         var_dump('lbrau maj cache file');
-;        $pStream = fopen(self::PATH_RELEASE_CACHE,"a");
+        $pStream = fopen(self::PATH_RELEASE_CACHE,"a");
         fwrite($pStream, $sReleaseName."\n");
     }
 
@@ -162,7 +163,7 @@ class ReleaseManager {
         for ($iNbMaxReleases = self::NOMBRE_RELEASES_HISTORISEES; $iNbMaxReleases > 0; --$iNbReleases, --$iNbMaxReleases) {
             $aNewReleasesContentFile[$iNbMaxReleases] = $aReleasesList[$iNbReleases-1];
         }
-
+        var_dump('##### retour cleanCacheReleaseFile() => '.$aNewReleasesContentFile.'\n');
         return $aNewReleasesContentFile;
     }
 
@@ -201,6 +202,7 @@ class ReleaseManager {
      */
     public function removeSomeReleases($aReleasesListToDelete) {
         // TODO faire une gestion d'erreurs.
+        var_dump('function removeSomeReleases()');
         foreach ($aReleasesListToDelete as $iKey => $sReleasePath) {
             $this->removeRelease($sReleasePath);
         }
