@@ -2,15 +2,21 @@
 
 class ReleaseManager {
 
+    // PATH INTERNE A L'APPLI
+
+    // PATH INTERNE A L'APPLI
     const PATH_VENDORS = "sourceRelease/shared";
     const VENDOR_RELATIVE_PATH_FROM_RELEASE = "../shared/vendor/";
     const BIN_RELATIVE_PATH_FROM_RELEASE = "../shared/bin/";
     const NOMBRE_RELEASES_HISTORISEES = 5;
     const PATH_RELEASE_CACHE = "cache/releaseName.cache";
-    const VHOST_PATH = "/etc/apache2/"; // TODO a parametrer
+    const VHOST_PATH = "/etc/httpd/conf.d/";
     const PROJECT_NAME = "ProjectName"; // TODO a parametrer
+    const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo/";
 
     const PATH_PARAMETER_SYMLINK = "/Users/laurentbrau/Documents/Audit_ADEL/ScriptsAdel/sourceRelease/shared";
+
+    const VHOST_PROJECT_PATH = "/var/www/bitume";
 
     public $aRealeaseIndex;
     private $sLastReleaseName;
@@ -26,10 +32,12 @@ class ReleaseManager {
 	*	Cree un lien symbolique pour faire la liaison avec le projet.
 	*/
 	public function addRelease() {
+
         if (false == self::$bVendorsIsCreated) {
-            system("sudo mkdir ".self::PATH_VENDORS);
-            system("sudo chmod -R 777 ".self::PATH_VENDORS);
-            system("sudo chmod 777 -R sourceRelease/");
+
+             system("mkdir ".self::PATH_VENDORS);
+             system("chmod -Rf 777 ".self::PATH_VENDORS);
+             system("chmod 777 -Rf sourceRelease/");
         }
 
         $this->createSymlink(self::PATH_VENDORS."/vendor", $this->aRealeaseIndex['last']);
@@ -39,11 +47,22 @@ class ReleaseManager {
         $this->connectCurrentReleaseToProject(self::VHOST_PATH, $sLastReleasePath);
         $this->updateSharedFolderWithappRelease($this->sLastReleaseName, self::PATH_PARAMETER_SYMLINK);
 
-        // TODO lbrau check avec toinant pour desmonstration de decoupage.
         system("curl -sS https://getcomposer.org/installer | php");
-        system("sudo mv composer.phar ".self::PATH_VENDORS);
-        system("sudo cp ".$this->aRealeaseIndex['last']."/composer.json ".self::PATH_VENDORS."/");
-        system("cd ".self::PATH_VENDORS."/ && php composer.phar install");
+        system("mv composer.phar ".self::PATH_VENDORS);
+        system("cp ".$this->aRealeaseIndex['last']."/composer.json ".self::PATH_VENDORS."/");
+        system("cd ".self::PATH_VENDORS."/ && php -dmemory_limit=1G composer.phar install");
+
+        system('rm -f '.self::VHOST_PROJECT_PATH);
+        system('ln -s -f '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
+        system('cd '.self::VHOST_PROJECT_PATH.'&& php -dmemory_limit=1G composer.phar update');
+        echo "Autorisation ecriture cache file \n";
+        system("chmod -R 777 ".self::VHOST_PROJECT_PATH.'/app/*');
+        system('php app/console doctrine:database:create');
+
+        
+        // system('cd '.self::VHOST_PROJECT_PATH.' && mysql -u user -h host -p bdd_name < bdd-data.sql');
+        // system('cd '.self::VHOST_PROJECT_PATH.' && php app/console assetic:dump --env=prod');
+        // system('cd '.self::VHOST_PROJECT_PATH.' && php app/console assets:install --symlink');
 	}
 
     /**
@@ -52,11 +71,11 @@ class ReleaseManager {
      * @param $sVhostPath
      */
     private function connectCurrentReleaseToProject($sVhostPath, $sLastReleasePath) {
-        system("sudo ln -s ScriptsAdel/".trim($sLastReleasePath)." ".$sVhostPath."");
+        system("ln -s /home/optimus/Documents/Total/capilolo/".trim($sLastReleasePath)." ".$sVhostPath."");
         // recuperation du nom de la release par une regex.
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             $this->sLastReleaseName = $apMatches[0];
-            system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            system("mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
         else {
             throw new \Exception("Le nom de la release ne peut etre extrait du fichier releaseName.cache");
@@ -80,7 +99,7 @@ class ReleaseManager {
      */
     private function createSymlink() {
         system("ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
-        system("sudo rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
+        system("rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
         system("ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
     }
 
@@ -148,7 +167,9 @@ class ReleaseManager {
         // Creation d'un fichier de cache release
         var_dump('lbrau maj cache file');
         $pStream = fopen(self::PATH_RELEASE_CACHE,"a");
-        fwrite($pStream, $sReleaseName."\n");
+        var_dump('ici le fwrite',self::PATH_RELEASE_CACHE);
+        var_dump(fwrite($pStream, $sReleaseName."\n"));
+        fclose($pStream);
     }
 
     /**
@@ -175,6 +196,7 @@ class ReleaseManager {
     public function getAllReleaseFromFile() {
 
         $aReleaseNameList = array();
+        echo "recuperation des caches releases\n";
         $pFileStream = fopen(self::PATH_RELEASE_CACHE, "r");
         if ($pFileStream) {
             while (($sLine = fgets($pFileStream)) !== false) {
@@ -193,7 +215,7 @@ class ReleaseManager {
      * @param $sRelasePathToRemove
      */
     public function removeRelease($sRelasePathToRemove) {
-        system("sudo rm -R ".$sRelasePathToRemove);
+        system("rm -R ".$sRelasePathToRemove);
     }
 
     /**

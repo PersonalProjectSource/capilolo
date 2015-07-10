@@ -2,7 +2,6 @@
 <?php
 require "libClass/GitManager.php";
 $manager = new GitManager($argv[1]);
-
 try {
     $manager->cloneSource();
 }
