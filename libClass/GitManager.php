@@ -3,6 +3,7 @@
 require_once("Validator.php");
 require_once("ReleaseManager.php");
 
+
 class GitManager {
 	
 	const UP_TO_DATE = "Already up-to-date.";
