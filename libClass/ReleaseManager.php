@@ -12,11 +12,14 @@ class ReleaseManager {
     const PATH_RELEASE_CACHE = "cache/releaseName.cache";
     const VHOST_PATH = "/etc/httpd/conf.d/";
     const PROJECT_NAME = "ProjectName"; // TODO a parametrer
-    const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo/";
 
-    const PATH_PARAMETER_SYMLINK = "/Users/laurentbrau/Documents/Audit_ADEL/ScriptsAdel/sourceRelease/shared";
+    // const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo/";
+    // const PATH_PARAMETER_SYMLINK = "/Users/laurentbrau/Documents/Audit_ADEL/ScriptsAdel/sourceRelease/shared";
+    // const VHOST_PROJECT_PATH = "/var/www/bitume";
 
-    const VHOST_PROJECT_PATH = "/var/www/bitume";
+    const API_ROOT_PATH = "/home/delachezmurel/ScriptDeploiement/capilolo/";
+    const PATH_PARAMETER_SYMLINK = "/home/delachezmurel/ScriptDeploiement/capilolo/sourceRelease/shared";
+    const VHOST_PROJECT_PATH = "/var/www/bitume2";
 
     public $aRealeaseIndex;
     private $sLastReleaseName;
