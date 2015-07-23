@@ -82,7 +82,7 @@ class ReleaseManager {
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             var_dump("----------------------------------------------------------", $apMatches, "------------------------------END----------------------");
             $this->sLastReleaseName = $apMatches[0];
-            system("mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
         else {
             throw new \Exception("Le nom de la release ne peut etre extrait du fichier releaseName.cache");
@@ -111,7 +111,7 @@ class ReleaseManager {
     }
 
     private function updateSharedFolderWithappRelease($sLastReleaseName, $sPathSymlinkParameterYml ) {
-        system("cp sourceRelease/".$sLastReleaseName."/app/config/parameters.yml.dist sourceRelease/".$sLastReleaseName."/app/config/parameters.yml");
+        system("sudo cp sourceRelease/".$sLastReleaseName."/app/config/parameters.yml.dist sourceRelease/".$sLastReleaseName."/app/config/parameters.yml");
     }
 
     /**
