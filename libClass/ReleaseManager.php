@@ -56,7 +56,7 @@ class ReleaseManager {
         system("cd ".self::PATH_VENDORS."/ && php -dmemory_limit=1G composer.phar install");
 
         system('rm -f '.self::VHOST_PROJECT_PATH);
-        system('sudo ln -s -f '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
+        system('sudo ln -s '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
         system('cd '.self::VHOST_PROJECT_PATH.'&& php -dmemory_limit=1G composer.phar update');
         echo "Autorisation ecriture cache file \n";
         system("chmod -R 777 ".self::VHOST_PROJECT_PATH.'/app/*');
@@ -74,7 +74,10 @@ class ReleaseManager {
      * @param $sVhostPath
      */
     private function connectCurrentReleaseToProject($sVhostPath, $sLastReleasePath) {
-        system("sudo ln -s /home/optimus/Documents/Total/capilolo/".trim($sLastReleasePath)." ".$sVhostPath."");
+        //system("sudo ln -s /home/optimus/Documents/Total/capilolo/".trim($sLastReleasePath)." ".$sVhostPath."");
+        system("sudo ln -s ".self::API_ROOT_PATH."".trim($sLastReleasePath)." ".$sVhostPath."");
+
+        //API_ROOT_PATH
         // recuperation du nom de la release par une regex.
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             $this->sLastReleaseName = $apMatches[0];
