@@ -80,6 +80,7 @@ class ReleaseManager {
         //API_ROOT_PATH
         // recuperation du nom de la release par une regex.
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
+            var_dump("----------------------------------------------------------", $apMatches, "------------------------------END----------------------");
             $this->sLastReleaseName = $apMatches[0];
             system("mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
