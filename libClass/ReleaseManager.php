@@ -55,7 +55,7 @@ class ReleaseManager {
         system("cp ".$this->aRealeaseIndex['last']."/composer.json ".self::PATH_VENDORS."/");
         system("cd ".self::PATH_VENDORS."/ && php -dmemory_limit=1G composer.phar install");
 
-        system('rm -f '.self::VHOST_PROJECT_PATH);
+        system('sudo rm -f '.self::VHOST_PROJECT_PATH);
         system('sudo ln -s '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
         system('cd '.self::VHOST_PROJECT_PATH.'&& php -dmemory_limit=1G composer.phar update');
         echo "Autorisation ecriture cache file \n";
@@ -106,7 +106,7 @@ class ReleaseManager {
      */
     private function createSymlink() {
         system("sudo ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
-        system("rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
+        system("sudo rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
         system("sudo ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
     }
 
@@ -222,7 +222,7 @@ class ReleaseManager {
      * @param $sRelasePathToRemove
      */
     public function removeRelease($sRelasePathToRemove) {
-        system("rm -R ".$sRelasePathToRemove);
+        system("sudo rm -R ".$sRelasePathToRemove);
     }
 
     /**
