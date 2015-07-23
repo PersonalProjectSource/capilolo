@@ -56,7 +56,7 @@ class ReleaseManager {
         system("cd ".self::PATH_VENDORS."/ && php -dmemory_limit=1G composer.phar install");
 
         system('rm -f '.self::VHOST_PROJECT_PATH);
-        system('ln -s -f '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
+        system('sudo ln -s -f '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
         system('cd '.self::VHOST_PROJECT_PATH.'&& php -dmemory_limit=1G composer.phar update');
         echo "Autorisation ecriture cache file \n";
         system("chmod -R 777 ".self::VHOST_PROJECT_PATH.'/app/*');
@@ -74,7 +74,7 @@ class ReleaseManager {
      * @param $sVhostPath
      */
     private function connectCurrentReleaseToProject($sVhostPath, $sLastReleasePath) {
-        system("ln -s /home/optimus/Documents/Total/capilolo/".trim($sLastReleasePath)." ".$sVhostPath."");
+        system("sudo ln -s /home/optimus/Documents/Total/capilolo/".trim($sLastReleasePath)." ".$sVhostPath."");
         // recuperation du nom de la release par une regex.
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             $this->sLastReleaseName = $apMatches[0];
@@ -101,9 +101,9 @@ class ReleaseManager {
      * Gere la creation de liens symboliques pour les sources a partager avec la release courante.
      */
     private function createSymlink() {
-        system("ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
+        system("sudo ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
         system("rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
-        system("ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
+        system("sudo ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
     }
 
     private function updateSharedFolderWithappRelease($sLastReleaseName, $sPathSymlinkParameterYml ) {
