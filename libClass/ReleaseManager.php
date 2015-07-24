@@ -82,6 +82,7 @@ class ReleaseManager {
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             var_dump("----------------------------------------------------------", $apMatches, "------------------------------END----------------------");
             $this->sLastReleaseName = $apMatches[0];
+            echo("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
             system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
         else {
