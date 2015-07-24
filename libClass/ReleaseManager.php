@@ -39,8 +39,8 @@ class ReleaseManager {
         if (false == self::$bVendorsIsCreated) {
 
              system("mkdir ".self::PATH_VENDORS);
-             system("chmod -Rf 777 ".self::PATH_VENDORS);
-             system("chmod 777 -Rf sourceRelease/");
+             system("sudo chmod -Rf 777 ".self::PATH_VENDORS);
+             system("sudo chmod 777 -Rf sourceRelease/");
         }
 
         $this->createSymlink(self::PATH_VENDORS."/vendor", $this->aRealeaseIndex['last']);
@@ -83,8 +83,9 @@ class ReleaseManager {
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             var_dump("----------------------------------------------------------", $apMatches, "------------------------------END----------------------");
             $this->sLastReleaseName = $apMatches[0];
+
             echo("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME."\n");
-            system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            system("sudo mv -f ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
         else {
             throw new \Exception("Le nom de la release ne peut etre extrait du fichier releaseName.cache");
