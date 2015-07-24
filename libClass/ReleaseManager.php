@@ -19,7 +19,7 @@ class ReleaseManager {
 
     const API_ROOT_PATH = "/home/delachezmurel/ScriptDeploiement/capilolo/";
     const PATH_PARAMETER_SYMLINK = "/home/delachezmurel/ScriptDeploiement/capilolo/sourceRelease/shared";
-    const VHOST_PROJECT_PATH = "/var/www/bitume2";
+    const VHOST_PROJECT_PATH = "/var/www/bitume";
 
     public $aRealeaseIndex;
     private $sLastReleaseName;
@@ -86,7 +86,9 @@ class ReleaseManager {
             // sudo rm /etc/httpd/conf.d/ProjectName
             system("sudo rm /etc/httpd/conf.d/ProjectName");
             echo("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME."\n");
-            system("sudo mv -f ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            //system("sudo mv -f ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+
         }
         else {
             throw new \Exception("Le nom de la release ne peut etre extrait du fichier releaseName.cache");
