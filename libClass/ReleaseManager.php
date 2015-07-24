@@ -53,13 +53,14 @@ class ReleaseManager {
         system("curl -sS https://getcomposer.org/installer | php");
         system("mv composer.phar ".self::PATH_VENDORS);
         system("cp ".$this->aRealeaseIndex['last']."/composer.json ".self::PATH_VENDORS."/");
+        system("php -dmemory_limit=1G composer.phar self-update");
         system("cd ".self::PATH_VENDORS."/ && php -dmemory_limit=1G composer.phar install");
 
         system('sudo rm -f '.self::VHOST_PROJECT_PATH);
         system('sudo ln -s '.self::API_ROOT_PATH.$this->aRealeaseIndex['last'].' '.self::VHOST_PROJECT_PATH);
         system('cd '.self::VHOST_PROJECT_PATH.'&& php -dmemory_limit=1G composer.phar update');
         echo "Autorisation ecriture cache file \n";
-        system("chmod -R 777 ".self::VHOST_PROJECT_PATH.'/app/*');
+        system("sudo chmod -R 777 ".self::VHOST_PROJECT_PATH.'/app/*');
         system('php app/console doctrine:database:create');
 
         
@@ -82,7 +83,7 @@ class ReleaseManager {
         if (preg_match("/[0-9]{3,}/",$sLastReleasePath, $apMatches)) {
             var_dump("----------------------------------------------------------", $apMatches, "------------------------------END----------------------");
             $this->sLastReleaseName = $apMatches[0];
-            echo("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
+            echo("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME."\n");
             system("sudo mv ".$sVhostPath."".$apMatches[0]." ".$sVhostPath."".self::PROJECT_NAME);
         }
         else {
