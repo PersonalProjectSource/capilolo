@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 require "libClass/GitManager.php";
-require "libClass/ReleaseManager.php"
+require "libClass/ReleaseManager.php";
 
 
 if ($argv[1] == 'revert') {
