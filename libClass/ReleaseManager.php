@@ -11,7 +11,7 @@ class ReleaseManager {
     const NOMBRE_RELEASES_HISTORISEES = 5;
     const PATH_RELEASE_CACHE = "cache/releaseName.cache";
     const VHOST_PATH = "/etc/httpd/conf.d/";
-    const PROJECT_NAME = "ProjectName"; // TODO a parametrer
+    const PROJECT_NAME = "finaltest.conf"; // TODO a parametrer
 
     // const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo/";
     // const PATH_PARAMETER_SYMLINK = "/Users/laurentbrau/Documents/Audit_ADEL/ScriptsAdel/sourceRelease/shared";
@@ -299,8 +299,8 @@ class ReleaseManager {
 
         $sPathReversed = $this->getBeforeLastReleasePath();
         system('ln -s /home/optimus/Documents/Total/capilolo/sourceRelease/1437991777/ /etc/httpd/conf.d/tototo.conf');
-        echo('@@@@@@@@@@@@@@@@@@@@@@@@ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'@@@@@@@@@@@@@@@@@@@@@@@@@'."\n");
-        system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.'');
+        echo('@@@@@@@@@@@ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'@@@@@@@@."\n");
+        system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.''.PROJECT_NAME);
     }
 
     /*
