@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 require "libClass/GitManager.php";
-require "libClass/ReleaseManager.php";
+
 
 
 if ($argv[1] == 'revert') {
-
+	require "libClass/ReleaseManager.php";
 	$rm = new ReleaseManager();
 	echo 'revert encours'; 
 	$rm->revertRelease();
