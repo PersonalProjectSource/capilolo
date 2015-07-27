@@ -43,7 +43,13 @@ class ReleaseManager {
              system("sudo chmod 777 -Rf sourceRelease/");
         }
 
-        $this->createSymlink(self::PATH_VENDORS."/vendor", $this->aRealeaseIndex['last']);
+
+        //TODO lbrau : mettre a jour l'appel de fonction.
+
+        $this->createSymlink(self::VENDOR_RELATIVE_PATH_FROM_RELEASE, self::BIN_RELATIVE_PATH_FROM_RELEASE, $this->aRealeaseIndex['last']."/vendor");
+        // $this->createSymlink(self::PATH_VENDORS."/vendor", $this->aRealeaseIndex['last']);
+        
+
         $this->keepLimitedReleases();
 
         $sLastReleasePath = $this->getLastReleasePath();
@@ -121,21 +127,22 @@ class ReleaseManager {
     /**
      * Gere la creation de liens symboliques pour les sources a partager avec la release courante.
      */
-    private function createSymlink() {
-        system("sudo ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
-        system("sudo rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
-        system("sudo ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
-    }
-
+    // private function createSymlink() {
+    //     system("sudo ln -s ".self::VENDOR_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/vendor");
+    //     system("sudo rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
+    //     system("sudo ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
+    // }
 
     /**
      * Gere la creation de liens symboliques pour les sources a partager avec la release courante.
      */
-    // private function createSymlink($sVendorRelativePath, $sBinRelativePathFromRelease, $sReleasePathIndex) {
-    //     system("sudo ln -s ".$sVendorRelativePath." ".$this->aRealeaseIndex['last']."/vendor");
-    //     system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
-    //     system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
-    // }
+    private function createSymlink($sVendorRelativePath, $sBinRelativePathFromRelease, $sReleasePathIndex) {
+
+        var_dump("passe dans la nouvelle methode de symlink\n");
+        system("sudo ln -s ".$sVendorRelativePath." ".$this->aRealeaseIndex['last']."/vendor");
+        system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
+        system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
+    }
 
 
     private function updateSharedFolderWithappRelease($sLastReleaseName, $sPathSymlinkParameterYml ) {
