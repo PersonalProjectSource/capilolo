@@ -299,7 +299,7 @@ class ReleaseManager {
 
         $sPathReversed = $this->getBeforeLastReleasePath();
         echo('@@@@@@@@@@@ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'@@@@@@@@'."\n");
-        system('sudo rm -Rf '.self::API_ROOT_PATH.' '.$this->getLastReleasePath());
+        system('sudo rm -Rf '.self::VHOST_PATH.''.self::PROJECT_NAME);
         echo('sudo rm -Rf '.self::API_ROOT_PATH.' '.$this->getLastReleasePath());
 
         system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.''.self::PROJECT_NAME);
