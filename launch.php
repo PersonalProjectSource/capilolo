@@ -2,10 +2,8 @@
 <?php
 require "libClass/GitManager.php";
 
-
-
 if ($argv[1] == 'revert') {
-	require "libClass/ReleaseManager.php";
+	@include "libClass/ReleaseManager.php";
 	$rm = new ReleaseManager();
 	echo 'revert encours'; 
 	$rm->revertRelease();
