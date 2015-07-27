@@ -295,9 +295,12 @@ class ReleaseManager {
 
         var_dump(count($aAllReleases));
         var_dump($this->getBeforeLastReleasePath());
+
         if (0 != count($aAllReleases)) {
             
             var_dump("recuperation de toute les releases", $aAllReleases);
+            $sRealeaseToRevert = $this->getBeforeLastReleasePath();
+            $this->createSymlink($sVendorRelativePath, $sBinRelativePathFromRelease, $sRealeaseToRevert."/vendor")
         }
         else {
             throw new Exception("Le fichier de cache semble vide", 1);
