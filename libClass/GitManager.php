@@ -67,7 +67,7 @@ class GitManager {
 				default:
                     var_dump("##### passe 4 #####\n");
                     $this->releaseManager->addRelease(); // TODO voir si suppression apres test
-                    $this->releaseManager->revertRelease();die('dodone');
+                    //$this->releaseManager->revertRelease();die('dodone');
 					throw new Exception("Operation terminee \n");
 					break;
 			}
