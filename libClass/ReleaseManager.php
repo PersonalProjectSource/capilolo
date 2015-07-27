@@ -283,7 +283,8 @@ class ReleaseManager {
 
         var_dump(count($aAllReleases));
         if (0 != count($aAllReleases)) {
-            var_dump($aAllReleases);
+            
+            var_dump("recuperation de toute les releases", $aAllReleases);
         }
         else {
             throw new Exception("Le fichier de cache semble vide", 1);
