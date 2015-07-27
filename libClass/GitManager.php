@@ -39,7 +39,7 @@ class GitManager {
      * Gere le git Clone
      * @throws Exception
      */
-	public function cloneSource () {
+	public function cloneSource ($argv) {
 
 		$iTokkenId = time();
         $sReleasePath = self::RELEASE_SOURCE_FOLDER.$iTokkenId;
@@ -67,7 +67,7 @@ class GitManager {
 				default:
                     var_dump("##### passe 4 #####\n");
                     $this->releaseManager->addRelease(); // TODO voir si suppression apres test
-                    $this->releaseManager->revertRelease();die;
+                    $this->releaseManager->revertRelease();die('dodone');
 					throw new Exception("Operation terminee \n");
 					break;
 			}
