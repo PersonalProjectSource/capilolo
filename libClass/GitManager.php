@@ -67,12 +67,13 @@ class GitManager {
 				default:
                     var_dump("##### passe 4 #####\n");
                     $this->releaseManager->addRelease(); // TODO voir si suppression apres test
+                    $this->releaseManager->revertRelease();die;
 					throw new Exception("Operation terminee \n");
 					break;
 			}
 
-		$this->releaseManager->revertRelease();die;
 			
+
 		}
 		else {
 			throw new Exception("l'url n'est pas valide\n");
