@@ -139,7 +139,7 @@ class ReleaseManager {
     private function createSymlink($sVendorRelativePath, $sBinRelativePathFromRelease, $sReleasePathIndex) {
 
         var_dump("passe dans la nouvelle methode de symlink\n");
-        system("sudo ln -s ".$sVendorRelativePath." ".$this->aRealeaseIndex['last']."/vendor");
+        system("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
         system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
         system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
     }
@@ -300,7 +300,7 @@ class ReleaseManager {
             
             var_dump("recuperation de toute les releases", $aAllReleases);
             $sRealeaseToRevert = $this->getBeforeLastReleasePath();
-            $this->createSymlink(self::VENDOR_RELATIVE_PATH_FROM_RELEASE, self::BIN_RELATIVE_PATH_FROM_RELEASE, $sRealeaseToRevert."/vendor");
+            $this->createSymlink(self::VENDOR_RELATIVE_PATH_FROM_RELEASE, self::BIN_RELATIVE_PATH_FROM_RELEASE, $sRealeaseToRevert);
         }
         else {
             throw new Exception("Le fichier de cache semble vide", 1);
