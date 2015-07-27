@@ -300,7 +300,7 @@ class ReleaseManager {
         $sPathReversed = $this->getBeforeLastReleasePath();
         system('ln -s /home/optimus/Documents/Total/capilolo/sourceRelease/1437991777/ /etc/httpd/conf.d/tototo.conf');
         echo('@@@@@@@@@@@ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'@@@@@@@@'."\n");
-        system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.''.PROJECT_NAME);
+        system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.''.self::PROJECT_NAME);
     }
 
     /*
