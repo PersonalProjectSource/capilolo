@@ -298,9 +298,9 @@ class ReleaseManager {
         // system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
 
         $sPathReversed = $this->getBeforeLastReleasePath();
-        system('ln -s /home/optimus/Documents/Total/capilolo/sourceRelease/1437991777/ /etc/httpd/conf.d/');
+        system('ln -s /home/optimus/Documents/Total/capilolo/sourceRelease/1437991777/ /etc/httpd/conf.d/tototo.conf');
         echo('@@@@@@@@@@@@@@@@@@@@@@@@ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'@@@@@@@@@@@@@@@@@@@@@@@@@'."\n");
-        system('ln -s '.self::API_ROOT_PATH.''.$sPathReversed.' '.self::VHOST_PATH.'');
+        system('ln -s '.self::API_ROOT_PATH.' '.$sPathReversed.' '.self::VHOST_PATH.'');
     }
 
     /*
