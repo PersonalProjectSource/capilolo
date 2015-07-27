@@ -41,10 +41,6 @@ class GitManager {
      */
 	public function cloneSource () {
 
-
-		$this->releaseManager->revertRelease();die;
-
-
 		$iTokkenId = time();
         $sReleasePath = self::RELEASE_SOURCE_FOLDER.$iTokkenId;
 
@@ -74,6 +70,9 @@ class GitManager {
 					throw new Exception("Operation terminee \n");
 					break;
 			}
+
+		$this->releaseManager->revertRelease();die;
+			
 		}
 		else {
 			throw new Exception("l'url n'est pas valide\n");
