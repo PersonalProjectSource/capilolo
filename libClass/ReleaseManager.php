@@ -142,6 +142,10 @@ class ReleaseManager {
         system("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
         system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
         system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
+
+        echo("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
+        echo("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
+        echo("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/");
     }
 
 
@@ -298,8 +302,9 @@ class ReleaseManager {
 
         if (0 != count($aAllReleases)) {
             
-            var_dump("recuperation de toute les releases", $aAllReleases);
+            var_dump("recuperation de toute les releases---------------------------------------------------------\n", $aAllReleases);
             $sRealeaseToRevert = $this->getBeforeLastReleasePath();
+            var_dump($sRealeaseToRevert);
             $this->createSymlink(self::VENDOR_RELATIVE_PATH_FROM_RELEASE, self::BIN_RELATIVE_PATH_FROM_RELEASE, $sRealeaseToRevert);
         }
         else {
