@@ -294,7 +294,7 @@ class ReleaseManager {
         $aAllReleases = $this->getAllReleaseFromFile();
 
         var_dump(count($aAllReleases));
-        var_dump($this->getBeforeLastReleasePath);
+        var_dump($this->getBeforeLastReleasePath());
         if (0 != count($aAllReleases)) {
             
             var_dump("recuperation de toute les releases", $aAllReleases);
