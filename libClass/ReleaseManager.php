@@ -102,9 +102,20 @@ class ReleaseManager {
      */
     private function getLastReleasePath() {
         $aReleasesList = $this->getAllReleaseFromFile();
-        $sLastIndexReleaseFile = $aReleasesList[count($aReleasesList)-1];
+        $sLastIndexReleaseFile = $aReleasesList[count($aReleasesList)-1]; // Remplacer par la fonction end()
 
        return $sLastIndexReleaseFile;
+    }
+
+    /**
+     * Renvoi le path de la derniere release du fichier releases en cache.
+     *
+     * @return String
+     */
+    private function getAllReleasePath() {
+        
+        $aReleasesList = $this->getAllReleaseFromFile();
+        return $aReleasesList;
     }
 
     /**
@@ -115,6 +126,17 @@ class ReleaseManager {
         system("sudo rm -R  ".$this->aRealeaseIndex['last']."/bin/\n"); // Supprime le bin existant
         system("sudo ln -s ".self::BIN_RELATIVE_PATH_FROM_RELEASE." ".$this->aRealeaseIndex['last']."/"); // ajoute le symlink vers le bin/ shared
     }
+
+
+    /**
+     * Gere la creation de liens symboliques pour les sources a partager avec la release courante.
+     */
+    // private function createSymlink($sVendorRelativePath, $sBinRelativePathFromRelease, $sReleasePathIndex) {
+    //     system("sudo ln -s ".$sVendorRelativePath." ".$this->aRealeaseIndex['last']."/vendor");
+    //     system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
+    //     system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
+    // }
+
 
     private function updateSharedFolderWithappRelease($sLastReleaseName, $sPathSymlinkParameterYml ) {
         system("sudo cp sourceRelease/".$sLastReleaseName."/app/config/parameters.yml.dist sourceRelease/".$sLastReleaseName."/app/config/parameters.yml");
@@ -228,6 +250,7 @@ class ReleaseManager {
      * @param $sRelasePathToRemove
      */
     public function removeRelease($sRelasePathToRemove) {
+
         system("sudo rm -R ".$sRelasePathToRemove);
     }
 
@@ -243,5 +266,22 @@ class ReleaseManager {
         }
     }
 
-    public function revertRelease () {}
+    /*
+    *   Fait un revert sur l'avant derniere release.
+    */
+    public function revertRelease () {
+
+        // recuperation de toutes les releases.
+        $aAllReleases = $this->getAllReleaseFromFile();
+
+        var_dump(count($aAllReleases));
+        if (0 != count($aAllReleases)) {
+            var_dump($aAllReleases);
+        }
+        else {
+            throw new Exception("Le fichier de cache semble vide", 1);
+        }
+        // recuperation de l'avant derniere relases.
+        // creation du lien symbolique.
+    }
 }
