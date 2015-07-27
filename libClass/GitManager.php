@@ -41,6 +41,10 @@ class GitManager {
      */
 	public function cloneSource () {
 
+
+		$this->releaseManager->revertRelease();die;
+
+
 		$iTokkenId = time();
         $sReleasePath = self::RELEASE_SOURCE_FOLDER.$iTokkenId;
 
