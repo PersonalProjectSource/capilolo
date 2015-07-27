@@ -291,6 +291,14 @@ class ReleaseManager {
        return $sLastIndexReleaseFile;
     }
 
+    public function createSymlinkRevert() {
+
+        // system("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
+        // system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
+        // system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
+        system('ln -s /etc/httpd/conf.d/ /home/optimus/Documents/Total/capilolo/sourceRelease/1437998777/');
+    }
+
     /*
     *   Fait un revert sur l'avant derniere release.
     */
