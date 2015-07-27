@@ -273,6 +273,18 @@ class ReleaseManager {
         }
     }
 
+    /**
+     * Renvoi le path de la derniere release du fichier releases en cache.
+     *
+     * @return String
+     */
+    private function getBeforeLastReleasePath() {
+        $aReleasesList = $this->getAllReleaseFromFile();
+        $sLastIndexReleaseFile = $aReleasesList[count($aReleasesList)-2]; // Remplacer par la fonction end()
+
+       return $sLastIndexReleaseFile;
+    }
+
     /*
     *   Fait un revert sur l'avant derniere release.
     */
@@ -282,6 +294,7 @@ class ReleaseManager {
         $aAllReleases = $this->getAllReleaseFromFile();
 
         var_dump(count($aAllReleases));
+        var_dump($this->getBeforeLastReleasePath);
         if (0 != count($aAllReleases)) {
             
             var_dump("recuperation de toute les releases", $aAllReleases);
