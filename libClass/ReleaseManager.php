@@ -140,12 +140,14 @@ class ReleaseManager {
 
         var_dump("passe dans la nouvelle methode de symlink\n");
         system("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
-        system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
-        system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
-
         echo("sudo ln -s ".$sVendorRelativePath." ".$sReleasePathIndex."/vendor");
+        
+        system("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
         echo("sudo rm -R  ".$sReleasePathIndex."/bin/\n"); // Supprime le bin existant
+
+        system("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/"); // ajoute le symlink vers le bin/ shared
         echo("sudo ln -s ".$sBinRelativePathFromRelease." ".$sReleasePathIndex."/");
+
     }
 
 
