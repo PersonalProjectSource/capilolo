@@ -16,9 +16,10 @@ class ReleaseManager {
     // const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo/";
     // const PATH_PARAMETER_SYMLINK = "/Users/laurentbrau/Documents/Audit_ADEL/ScriptsAdel/sourceRelease/shared";
     // const VHOST_PROJECT_PATH = "/var/www/bitume";
-
-    const API_ROOT_PATH = "/home/delachezmurel/ScriptDeploiement/capilolo/";
-    const PATH_PARAMETER_SYMLINK = "/home/delachezmurel/ScriptDeploiement/capilolo/sourceRelease/shared";
+    const API_ROOT_PATH = "/home/optimus/Documents/Total/capilolo";
+    // const API_ROOT_PATH = "/home/delachezmurel/ScriptDeploiement/capilolo/";
+    // const PATH_PARAMETER_SYMLINK = "/home/delachezmurel/ScriptDeploiement/capilolo/sourceRelease/shared";
+    const PATH_PARAMETER_SYMLINK = "/home/optimus/Documents/Total/capilolo/sourceRelease/shared";
     const VHOST_PROJECT_PATH = "/var/www/bitume";
 
     public $aRealeaseIndex;
