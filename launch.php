@@ -10,7 +10,7 @@ if ($argv[1] == 'revert') {
 	$rm->revertRelease();
 }
 else {
-	$argv[1] = "-b preprod https://adelou:oustAdel210285@github.com/NGRP/Total-Bitume.git";
+	$argv[1] = "-b preprod https://adelou:codeGit@github.com/NGRP/Total-Bitume.git";
 	$manager = new GitManager($argv[1]);
 	try {
 	    $manager->cloneSource();
