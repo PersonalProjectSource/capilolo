@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env php
 <?php
 require "libClass/GitManager.php";
@@ -17,4 +18,23 @@ else {
 	catch (Exception $e) {
 	    echo "Une exception a ete levee : ".$e->getMessage()."\n";
 	}	
+=======
+<?php
+
+ // Script de gestion de l'installation:
+ //	- mise a jour des sources Github
+ //	- revert des sources en cas de probleme 
+ // - revert à volonté
+
+require "libClass/Gitmanager.php";
+
+
+$manager = new GitManager($argv[1]);
+
+try {
+	$manager->cloneSource();
+}
+catch (Exception $e) {
+	echo "Une exception a ete levee : ".$e->getMessage()."\n";
+>>>>>>> 60a7096b05016b30699adc003f995d504098a374
 }

@@ -2,6 +2,7 @@
 
 class ReleaseManager {
 
+<<<<<<< HEAD
     // PATH INTERNE A L'APPLI
 
     // PATH INTERNE A L'APPLI
@@ -28,6 +29,14 @@ class ReleaseManager {
 	public function __construct() {
 		$this->aRealeaseIndex = array();
         self::$bVendorsIsCreated = false;
+=======
+	public $aRealeaseIndex;
+
+
+	public function __construct() {
+
+		$aRealeaseIndex = array();
+>>>>>>> 60a7096b05016b30699adc003f995d504098a374
 	}
 
 	/**
@@ -35,6 +44,7 @@ class ReleaseManager {
 	*	Cree un lien symbolique pour faire la liaison avec le projet.
 	*/
 	public function addRelease() {
+<<<<<<< HEAD
 
         if (false == self::$bVendorsIsCreated) {
 
@@ -305,4 +315,12 @@ class ReleaseManager {
         // recuperation de l'avant derniere relases.
         // creation du lien symbolique.
     }
+=======
+		echo "methode add release\n";
+	}
+
+	public function removeRelease() {}
+
+	public function revertRelease () {}
+>>>>>>> 60a7096b05016b30699adc003f995d504098a374
 }
